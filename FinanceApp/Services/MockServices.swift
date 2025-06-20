@@ -7,14 +7,15 @@
 
 import Foundation
 
+
 final class CategoriesService {
     func categories() async throws -> [Category] {
         return [
-            Category(id: 1, name: "Fastfood", emoji: "🍔", direction: .outcome),
-            Category(id: 2, name: "Salary", emoji: "💵", direction: .income),
-            Category(id: 3, name: "Supermarkets", emoji: "🏪", direction: .outcome),
-            Category(id: 4, name: "Transfers", emoji: "💳", direction: .income),
-            Category(id: 5, name: "Transfers", emoji: "💳", direction: .outcome)
+            Category(id: 1, name: "Фастфуд", emoji: "🍔", direction: .outcome),
+            Category(id: 2, name: "Зарплата", emoji: "💵", direction: .income),
+            Category(id: 3, name: "Супермаркеты", emoji: "🏪", direction: .outcome),
+            Category(id: 4, name: "Входящие переводы", emoji: "💳", direction: .income),
+            Category(id: 5, name: "Исходящие переводы", emoji: "💳", direction: .outcome)
         ]
     }
         
@@ -49,8 +50,185 @@ final class BankAccountsService {
     private var currentAccount: BankAccount
 }
 
+
 final class TransactionsService {
     private var store: [Transaction] = []
+
+    init() {
+        let now = Date()
+        store = [
+            Transaction(
+                id: 1,
+                accountId: 1,
+                categoryId: 1,
+                amount: Decimal(string: "450.00")!,
+                transactionDate: now,
+                comment: "Burger Queen. Покупка бургера",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 2,
+                accountId: 1,
+                categoryId: 3,
+                amount: Decimal(string: "2500.00")!,
+                transactionDate: now,
+                comment: "Пятерочка. Покупка моркови",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 3,
+                accountId: 4,
+                categoryId: 3,
+                amount: Decimal(string: "450.00")!,
+                transactionDate: now,
+                comment: "",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 4,
+                accountId: 1,
+                categoryId: 4,
+                amount: Decimal(string: "250.00")!,
+                transactionDate: now,
+                comment: "",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 5,
+                accountId: 1,
+                categoryId: 4,
+                amount: Decimal(string: "450.00")!,
+                transactionDate: now,
+                comment: "",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 6,
+                accountId: 1,
+                categoryId: 5,
+                amount: Decimal(string: "2500.00")!,
+                transactionDate: now,
+                comment: "Пятерочка. Покупка моркови",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 7,
+                accountId: 1,
+                categoryId: 1,
+                amount: Decimal(string: "450.00")!,
+                transactionDate: now,
+                comment: "Burger Queen. Покупка бургера",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 8,
+                accountId: 1,
+                categoryId: 3,
+                amount: Decimal(string: "2500.00")!,
+                transactionDate: now,
+                comment: "Пятерочка. Покупка моркови",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 9,
+                accountId: 3,
+                categoryId: 5,
+                amount: Decimal(string: "450.00")!,
+                transactionDate: now,
+                comment: "Burger Queen. Покупка бургера",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 10,
+                accountId: 1,
+                categoryId: 3,
+                amount: Decimal(string: "2500.00")!,
+                transactionDate: now,
+                comment: "Покупка ьогурта",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 11,
+                accountId: 1,
+                categoryId: 2,
+                amount: Decimal(string: "2500.00")!,
+                transactionDate: now,
+                comment: "Входящий перевод от друга",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 12,
+                accountId: 1,
+                categoryId: 2,
+                amount: Decimal(string: "2500.00")!,
+                transactionDate: now,
+                comment: "Еще один перевод от друга",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 13,
+                accountId: 1,
+                categoryId: 2,
+                amount: Decimal(string: "50000.00")!,
+                transactionDate: now,
+                comment: "Доход с нелегального бизнеса",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 13,
+                accountId: 1,
+                categoryId: 5,
+                amount: Decimal(string: "50000.00")!,
+                transactionDate: now,
+                comment: "Отправка денег за услуги",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 14,
+                accountId: 1,
+                categoryId: 2,
+                amount: Decimal(string: "2500.00")!,
+                transactionDate: now,
+                comment: "Еще один перевод от друга",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 15,
+                accountId: 1,
+                categoryId: 2,
+                amount: Decimal(string: "50000.00")!,
+                transactionDate: now,
+                comment: "Доход с нелегального бизнеса",
+                createdAt: now,
+                updatedAt: now
+            ),
+            Transaction(
+                id: 16,
+                accountId: 1,
+                categoryId: 5,
+                amount: Decimal(string: "50000.00")!,
+                transactionDate: now,
+                comment: "Отправка денег за услуги",
+                createdAt: now,
+                updatedAt: now
+            )
+        ]
+    }
 
     func list(from: Date, to: Date) async throws -> [Transaction] {
         return store.filter { $0.transactionDate >= from && $0.transactionDate <= to }
