@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+
+
 struct TransactionListView: View {
     let direction: Direction
-    @State private var isShowingHistory = false
     @State private var isShowingAdd = false
     @StateObject private var viewModel: TransactionListViewModel
 
@@ -29,15 +30,15 @@ struct TransactionListView: View {
                         HStack {
                             Text("Всего")
                                 .font(.subheadline)
-                                .foregroundColor(.black)
+                                .foregroundColor(.primary)
                             Spacer()
-                            Text("435 568 ₽")
+                            Text(rubFormatter.string(for: viewModel.totalAmount) ?? "")
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color(.white))
+                                .fill(Color(.systemBackground))
                         )
                         .padding(.horizontal)
                         
@@ -51,22 +52,22 @@ struct TransactionListView: View {
                             .padding(.horizontal)
                             
                             List(viewModel.transactions) { tx in
-                                NavigationLink(destination: Text("Заглушка")) {
+                                NavigationLink {
+                                    TransactionEditorView(transaction: tx)
+                                } label: {
                                     TransactionRow(
                                         tx: tx,
                                         category: viewModel.category(for: tx)
                                     )
                                     .frame(height: 56)
-                                    
                                 }
-//                                .listRowSeparator(.hidden)
                                 .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                                .listRowBackground(Color.white)
+
                             }
                             .listStyle(.plain)
-                            .frame(height: CGFloat(viewModel.transactions.count) * 56)
+                            .frame(height: CGFloat(viewModel.transactions.count) * 56-1)
                             .scrollContentBackground(.hidden)
-                            .background(Color.white)
+//                            .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                         .padding(.horizontal)
@@ -79,7 +80,7 @@ struct TransactionListView: View {
                 } label: {
                     Image(systemName: "plus")
                         .font(.system(size: 24))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(.background)
                         .frame(width: 60, height: 60)
                         .background(Circle().fill(Color(.accent)))
 //                        .shadow(radius: 4)
@@ -92,25 +93,38 @@ struct TransactionListView: View {
             .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        isShowingHistory = true
-                    } label: {
+                    NavigationLink(destination: HistoryScreen(direction: direction)) {
                         Image(systemName: "clock")
                             .font(.subheadline)
                             .foregroundColor(Color.blue)
                     }
                 }
             }
-            .sheet(isPresented: $isShowingHistory) {
-                Text("History Screen")
-            }
             .sheet(isPresented: $isShowingAdd) {
-                Text("Мои расходы (доделать прошу)")
+                TransactionEditorView()
+            }
+            .tabItem {
+                Label(
+                    direction == .income ? "Доходы" : "Расходы",
+                    systemImage: direction == .income ? "arrow.up.circle" : "arrow.down.circle"
+                )
             }
         }
         
     }
 }
+
+
+fileprivate let rubFormatter: NumberFormatter = {
+    let f = NumberFormatter()
+    f.numberStyle       = .currency
+    f.currencySymbol = "₽"
+    f.maximumFractionDigits = 2
+    f.minimumFractionDigits = 0
+    f.groupingSeparator = " "
+    f.locale = Locale(identifier: "ru_RU")
+    return f
+}()
 
 struct TransactionRow: View {
     let tx: Transaction
@@ -129,13 +143,13 @@ struct TransactionRow: View {
                 if let comment = tx.comment, !comment.isEmpty {
                     Text(comment)
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.primary.opacity(0.5))
                         .lineLimit(1)
                 }
             }
             Spacer()
             
-            Text(tx.amount, format: .currency(code: "RUB"))
+            Text(rubFormatter.string(for: tx.amount) ?? "")
                 .font(.callout)
 
         }
@@ -146,5 +160,5 @@ struct TransactionRow: View {
 
 
 #Preview {
-  TransactionListView(direction: .outcome)
+  TransactionListView(direction: .income)
 }

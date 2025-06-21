@@ -12,24 +12,29 @@ struct TabBarView: View {
         TabView {
             TransactionListView(direction: .outcome)
                 .tabItem {
-                    Image(systemName: "plus")
+                    Image("icon_expense")
+                        .renderingMode(.template)
                     Text("Расходы")
                 }
             TransactionListView(direction: .income)
                 .tabItem {
-                    Image(systemName: "minus")
+                    Image("icon_income")
+                        .renderingMode(.template)
                     Text("Доходы")
                 }
             MyAccountView().tabItem {
-                Image(systemName: "person.circle")
+                Image("icon_account")
+                    .renderingMode(.template)
                 Text("Счет")
             }
             CategoriesView().tabItem {
-                Image(systemName: "list.bullet")
+                Image("icon_categories")
+                    .renderingMode(.template)
                 Text("Категории")
             }
             SettingsView().tabItem {
-                Image(systemName: "gearshape")
+                Image("icon_settings")
+                    .renderingMode(.template)
                 Text("Настройки")
             }
         }

@@ -61,7 +61,7 @@ class TransactionListViewModel: ObservableObject {
         currentPage += 1
     }
     
-    /// Returns the Category model for a given transaction
+    
     func category(for tx: Transaction) -> Category {
         categories.first { $0.id == tx.categoryId }
         ?? Category(id: 0, name: "Unknown", emoji: "❓", direction: direction)

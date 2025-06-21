@@ -61,8 +61,8 @@ final class TransactionsService {
                 id: 1,
                 accountId: 1,
                 categoryId: 1,
-                amount: Decimal(string: "450.00")!,
-                transactionDate: now,
+                amount: Decimal(string: "450.30")!,
+                transactionDate: Calendar.current.date(from: DateComponents(year: 2025, month: 4, day: 5))!,
                 comment: "Burger Queen. Покупка бургера",
                 createdAt: now,
                 updatedAt: now
@@ -72,7 +72,7 @@ final class TransactionsService {
                 accountId: 1,
                 categoryId: 3,
                 amount: Decimal(string: "2500.00")!,
-                transactionDate: now,
+                transactionDate: Calendar.current.date(from: DateComponents(year: 2025, month: 4, day: 20))!,
                 comment: "Пятерочка. Покупка моркови",
                 createdAt: now,
                 updatedAt: now
@@ -81,8 +81,8 @@ final class TransactionsService {
                 id: 3,
                 accountId: 4,
                 categoryId: 3,
-                amount: Decimal(string: "450.00")!,
-                transactionDate: now,
+                amount: Decimal(string: "439.18")!,
+                transactionDate: Calendar.current.date(from: DateComponents(year: 2025, month: 5, day: 3))!,
                 comment: "",
                 createdAt: now,
                 updatedAt: now
@@ -91,8 +91,8 @@ final class TransactionsService {
                 id: 4,
                 accountId: 1,
                 categoryId: 4,
-                amount: Decimal(string: "250.00")!,
-                transactionDate: now,
+                amount: Decimal(string: "505.06")!,
+                transactionDate: Calendar.current.date(from: DateComponents(year: 2025, month: 5, day: 18))!,
                 comment: "",
                 createdAt: now,
                 updatedAt: now
@@ -102,7 +102,7 @@ final class TransactionsService {
                 accountId: 1,
                 categoryId: 4,
                 amount: Decimal(string: "450.00")!,
-                transactionDate: now,
+                transactionDate: Calendar.current.date(from: DateComponents(year: 2025, month: 6, day: 1))!,
                 comment: "",
                 createdAt: now,
                 updatedAt: now
@@ -112,7 +112,7 @@ final class TransactionsService {
                 accountId: 1,
                 categoryId: 5,
                 amount: Decimal(string: "2500.00")!,
-                transactionDate: now,
+                transactionDate: Calendar.current.date(from: DateComponents(year: 2025, month: 6, day: 15))!,
                 comment: "Пятерочка. Покупка моркови",
                 createdAt: now,
                 updatedAt: now
@@ -160,7 +160,7 @@ final class TransactionsService {
             Transaction(
                 id: 11,
                 accountId: 1,
-                categoryId: 2,
+                categoryId: 4,
                 amount: Decimal(string: "2500.00")!,
                 transactionDate: now,
                 comment: "Входящий перевод от друга",
@@ -170,7 +170,7 @@ final class TransactionsService {
             Transaction(
                 id: 12,
                 accountId: 1,
-                categoryId: 2,
+                categoryId: 4,
                 amount: Decimal(string: "2500.00")!,
                 transactionDate: now,
                 comment: "Еще один перевод от друга",
@@ -200,7 +200,7 @@ final class TransactionsService {
             Transaction(
                 id: 14,
                 accountId: 1,
-                categoryId: 2,
+                categoryId: 4,
                 amount: Decimal(string: "2500.00")!,
                 transactionDate: now,
                 comment: "Еще один перевод от друга",
