@@ -19,7 +19,7 @@ struct Transaction: Identifiable, Codable {
 }
 
 extension Transaction {
-    static let dateFormatter = ISO8601DateFormatter()
+    nonisolated(unsafe) static let dateFormatter = ISO8601DateFormatter()
     
     static func parse(JsonObject: Any) -> Transaction? {
         guard let transactionDict = JsonObject as? [String: Any] else {
@@ -53,7 +53,7 @@ extension Transaction {
             "createdAt": Self.dateFormatter.string(from: createdAt),
             "updatedAt": Self.dateFormatter.string(from: updatedAt)
         ]
-        if let comment = comment {    
+        if let comment = comment {
             dict["comment"] = comment
         } else {
             dict["comment"] = nil
