@@ -15,7 +15,17 @@ final class CategoriesService {
             Category(id: 2, name: "Зарплата", emoji: "💵", direction: .income),
             Category(id: 3, name: "Супермаркеты", emoji: "🏪", direction: .outcome),
             Category(id: 4, name: "Входящие переводы", emoji: "💳", direction: .income),
-            Category(id: 5, name: "Исходящие переводы", emoji: "💳", direction: .outcome)
+            Category(id: 5, name: "Исходящие переводы", emoji: "💳", direction: .outcome),
+            Category(id: 6, name: "Развлечения", emoji: "🎉", direction: .outcome),
+            Category(id: 7, name: "Транспорт", emoji: "🚌", direction: .outcome),
+            Category(id: 8, name: "Аптека", emoji: "💊", direction: .outcome),
+            Category(id: 9, name: "Кафе", emoji: "☕️", direction: .outcome),
+            Category(id: 10, name: "Путешествия", emoji: "✈️", direction: .outcome),
+            Category(id: 11, name: "Хозяйственные товары", emoji: "🛒", direction: .outcome),
+            Category(id: 12, name: "Подписки", emoji: "🌐", direction: .outcome),
+            Category(id: 13, name: "Образование", emoji: "🎓", direction: .outcome),
+            Category(id: 14, name: "Подарки", emoji: "🎁", direction: .outcome),
+            Category(id: 15, name: "Инвестиции", emoji: "📈", direction: .income)
         ]
     }
         
