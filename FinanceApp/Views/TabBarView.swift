@@ -22,7 +22,7 @@ struct TabBarView: View {
                         .renderingMode(.template)
                     Text("Доходы")
                 }
-            MyAccountView().tabItem {
+            BillView().tabItem {
                 Image("icon_account")
                     .renderingMode(.template)
                 Text("Счет")
@@ -30,7 +30,7 @@ struct TabBarView: View {
             CategoriesView().tabItem {
                 Image("icon_categories")
                     .renderingMode(.template)
-                Text("Категории")
+                Text("Статьи")
             }
             SettingsView().tabItem {
                 Image("icon_settings")

@@ -76,7 +76,7 @@ struct HistoryScreen: View {
                             TransactionRow(
                                 tx: tx,
                                 category: categories.first(where: { $0.id == tx.categoryId })
-                                    ?? Category(id: tx.categoryId, name: "Неизвестная категория", emoji: "❓", direction: direction)
+                                ?? Category(id: tx.categoryId, name: "Неизвестная категория", emoji: "❓", direction: direction)
                             )
                             .frame(height: 56)
                         }
