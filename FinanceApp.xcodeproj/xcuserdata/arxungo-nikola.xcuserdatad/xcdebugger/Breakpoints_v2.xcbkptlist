@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "869622DE-D261-49D3-BBF9-ACFFDB1BF1F6"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49BBE9CD-6AA9-4E97-8C31-734670E201FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FinanceApp/Views/BillView/BillViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "save(balance:currency:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "49BBE9CD-6AA9-4E97-8C31-734670E201FB - 3bc12c8abff04a7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FinanceApp.BillViewModel.save(balance: __C.NSDecimal, currency: Swift.String) -&gt; ()"
+                  moduleName = "FinanceApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arxungo-nikola/projects/YandexFinance/FinanceApp/Views/BillView/BillViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+               <Location
+                  uuid = "49BBE9CD-6AA9-4E97-8C31-734670E201FB - 3b15e4d2cea5cbe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () async throws -&gt; () in FinanceApp.BillViewModel.save(balance: __C.NSDecimal, currency: Swift.String) -&gt; ()"
+                  moduleName = "FinanceApp.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/arxungo-nikola/projects/YandexFinance/FinanceApp/Views/BillView/BillViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

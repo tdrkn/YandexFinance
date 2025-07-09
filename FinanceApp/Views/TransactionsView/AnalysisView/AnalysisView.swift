@@ -2,17 +2,26 @@
 //  AnalysisView.swift
 //  FinanceApp
 //
-//  Created by arxungo-nikola on 09.07.2025.
+//  Created by arxungo-dana on 09.07.2025.
 //
 
 import SwiftUI
 
-struct AnalysisView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+struct AnalysisView: UIViewControllerRepresentable {
+    let direction: Direction
+
+    func makeUIViewController(context: Context) -> AnalysisViewController {
+        AnalysisViewController(direction: direction)
+    }
+
+    func updateUIViewController(_ uiViewController: AnalysisViewController, context: Context) {
+        ///
     }
 }
 
+
 #Preview {
-    AnalysisView()
+    AnalysisView(direction: .outcome)
 }
+

@@ -79,25 +79,12 @@ struct HistoryScreen: View {
             .navigationTitle("Моя история")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        
-                    } label: {
+                    NavigationLink(destination: AnalysisView(direction: direction)) {
                         Image(systemName: "document")
                     }
                 }
             }
         }
-        
-        
-            
-            
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                NavigationLink(destination: AnalyticScreen()) {
-//                    Image(systemName: "doc.on.doc")
-//                }
-//            }
-//        }
         
         .onChange(of: endDate) {
             if endDate < startDate { startDate = endDate }
