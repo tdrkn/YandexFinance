@@ -15,19 +15,34 @@ struct BillView: View {
             List {
                 HStack {
                     Text("Баланс")
-//                    Spacer()
+                    Spacer()
+                    Text(rubFormatter.string(for: viewModel.account?.balance ?? 0) ?? "")
                 }
-                
                 HStack {
                     Text("Валюта")
-//                    Spacer()
+                    Spacer()
+                    Text(viewModel.account?.currency ?? "")
                 }
             }
-            .navigationTitle("Моя история")
-            .refreshable {}
+            .task { viewModel.load() }
+            .refreshable { viewModel.load() }
+            .navigationTitle("Мои статьи")
         }
     }
 }
+
+
+private let rubFormatter: NumberFormatter = {
+    let f = NumberFormatter()
+    f.numberStyle = .currency
+    f.currencySymbol = "₽"
+    f.maximumFractionDigits = 2
+    f.minimumFractionDigits = 0
+    f.groupingSeparator = " "
+    f.locale = Locale(identifier: "ru_RU")
+    return f
+}()
+
 
 #Preview {
     BillView()
