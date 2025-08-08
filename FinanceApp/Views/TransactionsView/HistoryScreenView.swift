@@ -31,9 +31,7 @@ struct HistoryScreen: View {
         NavigationStack {
             
             Form {
-                
                 Section {
-                    
                     HStack {
                         Text("Начало")
                         Spacer()
@@ -45,8 +43,6 @@ struct HistoryScreen: View {
                         .datePickerStyle(.compact)
                         .labelsHidden()
                     }
-                    
-                    
                     HStack {
                         Text("Конец")
                         Spacer()
@@ -58,8 +54,6 @@ struct HistoryScreen: View {
                         .datePickerStyle(.compact)
                         .labelsHidden()
                     }
-                    
-                    
                     HStack {
                         Text("Сумма")
                             .foregroundColor(.primary)
@@ -67,7 +61,6 @@ struct HistoryScreen: View {
                         Text(rubFormatter.string(for: total) ?? "")
                     }
                 }
-                
                 Section(header: Text("ОПЕРАЦИИ").font(.caption).foregroundColor(.secondary)) {
                     ForEach(transactions) { tx in
                         NavigationLink {
@@ -78,14 +71,21 @@ struct HistoryScreen: View {
                                 category: categories.first(where: { $0.id == tx.categoryId })
                                 ?? Category(id: tx.categoryId, name: "Неизвестная категория", emoji: "❓", direction: direction)
                             )
-                            .frame(height: 56)
                         }
                         .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     }
                 }
             }
+            .navigationTitle("Моя история")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: AnalysisView(direction: direction)) {
+                        Image(systemName: "document")
+                    }
+                }
+            }
         }
-        .navigationTitle("Моя история")
+        
         .onChange(of: endDate) {
             if endDate < startDate { startDate = endDate }
         }
@@ -123,5 +123,5 @@ struct HistoryScreen: View {
 }
 
 #Preview {
-    HistoryScreen(direction: .income)
+    HistoryScreen(direction: .outcome)
 }
